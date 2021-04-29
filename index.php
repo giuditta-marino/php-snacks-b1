@@ -73,7 +73,7 @@ $resultMailAt = strpos($mail, '@');
 $resultMailDot = strpos($mail, '.');
 $resultAge = is_numeric($age);
 
-var_dump($resultName, $resultMailAt, $resultMailDot, $resultAge);
+// var_dump($resultName, $resultMailAt, $resultMailDot, $resultAge);
 
 // if (!$resultName || !$resultMailAt || !$resultMailDot || !$resultAge) {
 //   echo 'ko';
@@ -89,5 +89,112 @@ if ($resultName === true & $resultMailAt == true & $resultMailDot == true & $res
 } else { ?>
   <div class="">
     Accesso negato
+  </div>
+<?php } ?>
+
+<!-- SNACK 3 -->
+<!-- Creare un array di array.
+Ogni array figlio avrà come chiave una data in questo formato: DD/MM/YYYY
+(ad es 31/01/2007) e come valore un array di post associati a quella data.
+Stampare ogni data con i relativi post. -->
+
+<?php
+$posts = [
+
+    '10/01/2019' => [
+        [
+            'title' => 'Titolo 1',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Titolo 2',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 2'
+        ],
+    ],
+
+    '10/02/2019' => [
+        [
+            'title' => 'Titolo 3',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 3'
+        ]
+    ],
+
+    '10/03/2019' => [
+        [
+            'title' => 'Titolo 4',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Titolo 5',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Titolo 6',
+            'author' => 'Giuditta Marino',
+            'text' => 'Testo post 6'
+        ]
+    ],
+];
+
+$dates= array_keys($posts);
+echo $dates;
+
+//
+// var_dump(array_keys($posts));
+//
+//
+// for ($i=0; $i < count($posts) ; $i++) {
+//   echo array_keys($posts[$i]);
+// }
+
+for ($i=0; $i < count($posts['10/01/2019']); $i++) { ?>
+  <div class="">
+    Qui inizia il post numero <?= $i + 1 ?> del giorno 10/01/2019
+  </div>
+  <div class="">
+    <?= $posts['10/01/2019'][$i][title] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/01/2019'][$i][author] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/01/2019'][$i][text] ?>
+  </div>
+<?php } ?>
+
+<?php
+for ($i=0; $i < count($posts['10/02/2019']); $i++) { ?>
+  <div class="">
+    Qui inizia il post numero <?= $i + 1 ?> del giorno 10/02/2019
+  </div>
+  <div class="">
+    <?= $posts['10/02/2019'][$i][title] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/02/2019'][$i][author] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/02/2019'][$i][text] ?>
+  </div>
+<?php } ?>
+
+<?php
+for ($i=0; $i < count($posts['10/03/2019']); $i++) { ?>
+  <div class="">
+    Qui inizia il post numero <?= $i + 1 ?> del giorno 10/03/2019
+  </div>
+  <div class="">
+    <?= $posts['10/03/2019'][$i][title] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/03/2019'][$i][author] ?>
+  </div>
+  <div class="">
+    <?= $posts['10/03/2019'][$i][text] ?>
   </div>
 <?php } ?>
