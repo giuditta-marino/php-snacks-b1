@@ -81,7 +81,7 @@ $resultAge = is_numeric($age);
 //   echo 'ok';
 // }
 
-if ($resultName === true & $resultMailAt == true & $resultMailDot == true & $resultAge === true) { ?>
+if ($resultName === true && $resultMailAt !== false && $resultMailDot !== false && $resultAge === true) { ?>
    <div class="">
      Accesso riuscito
    </div>
@@ -142,7 +142,7 @@ $posts = [
 ];
 
 $dates= array_keys($posts);
-echo $dates;
+echo $dates[0];
 
 //
 // var_dump(array_keys($posts));
